@@ -36,18 +36,20 @@ using System.Diagnostics.Tracing;
 
 #region ArrayStack
 
-var arrayStack = new ArrayStack<int>(5);
-Console.WriteLine(arrayStack.Count);
-arrayStack.Push(100);
-arrayStack.Push(200);
-Console.WriteLine(arrayStack.Count);
-arrayStack.Push(300);
-arrayStack.Push(400);
-arrayStack.Push(500);
+//var arrayStack = new ArrayStack<int>(5);
+//Console.WriteLine(arrayStack.Count);
+//arrayStack.Push(100);
+//arrayStack.Push(200);
+//Console.WriteLine(arrayStack.Count);
+//arrayStack.Push(300);
+//arrayStack.Push(400);
+//arrayStack.Push(500);
 
-Console.WriteLine(arrayStack.Peek());
-Console.WriteLine(arrayStack.Pop());
-Console.WriteLine(arrayStack.Pop());
-Console.WriteLine(arrayStack.Peek());
+//Console.WriteLine(arrayStack.Peek());
+//Console.WriteLine(arrayStack.Pop());
+//Console.WriteLine(arrayStack.Pop());
+//Console.WriteLine(arrayStack.Peek());
 
 #endregion
+
+

@@ -1,4 +1,5 @@
-﻿using DataStructs.Stack;
+﻿using DataStructs.DuplexList;
+using DataStructs.Stack;
 using System.Diagnostics.Tracing;
 
 
@@ -53,3 +54,30 @@ using System.Diagnostics.Tracing;
 #endregion
 
 
+#region DuplexList
+
+var duplexList = new DuplexLinkedList<int>();
+
+duplexList.Add(1);
+duplexList.Add(2);
+duplexList.Add(3);
+duplexList.Add(4);
+duplexList.Add(5);
+
+foreach (var duplex in duplexList)
+{
+    Console.Write(duplex + " ");
+}
+
+Console.WriteLine("-----");
+Console.WriteLine("-----");
+Console.WriteLine("-----");
+var reverse = duplexList.Reverse();
+
+foreach (var duplex in reverse)
+{
+    Console.Write(duplex + " ");
+}
+
+Console.ReadLine();
+#endregion

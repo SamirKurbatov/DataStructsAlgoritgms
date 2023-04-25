@@ -1,4 +1,5 @@
-﻿using DataStructs.DuplexList;
+﻿using DataStructs.CircularList;
+using DataStructs.DuplexList;
 using DataStructs.Stack;
 using System.Diagnostics.Tracing;
 
@@ -56,28 +57,52 @@ using System.Diagnostics.Tracing;
 
 #region DuplexList
 
-var duplexList = new DuplexLinkedList<int>();
+//var duplexList = new DuplexLinkedList<int>();
 
-duplexList.Add(1);
-duplexList.Add(2);
-duplexList.Add(3);
-duplexList.Add(4);
-duplexList.Add(5);
+//duplexList.Add(1);
+//duplexList.Add(2);
+//duplexList.Add(3);
+//duplexList.Add(4);
+//duplexList.Add(5);
 
-foreach (var duplex in duplexList)
+//foreach (var duplex in duplexList)
+//{
+//    Console.Write(duplex + " ");
+//}
+
+//Console.WriteLine("-----");
+//Console.WriteLine("-----");
+//Console.WriteLine("-----");
+//var reverse = duplexList.Reverse();
+
+//foreach (var duplex in reverse)
+//{
+//    Console.Write(duplex + " ");
+//}
+
+//Console.ReadLine();
+#endregion
+
+
+#region CircularList
+
+var list = new CircularList<int>();
+
+list.Add(1);
+list.Add(2);
+list.Add(3);
+list.Add(4);
+list.Add(5);
+
+
+list.Remove(3);
+
+foreach (var item in list)
 {
-    Console.Write(duplex + " ");
+    Console.Write(item + " ");
 }
 
-Console.WriteLine("-----");
-Console.WriteLine("-----");
-Console.WriteLine("-----");
-var reverse = duplexList.Reverse();
-
-foreach (var duplex in reverse)
-{
-    Console.Write(duplex + " ");
-}
 
 Console.ReadLine();
+
 #endregion

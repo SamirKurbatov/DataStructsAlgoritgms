@@ -1,4 +1,5 @@
 ﻿using DataStructs.DuplexDeque;
+using DataStructs.Hash;
 
 
 #region LinkedList
@@ -161,18 +162,57 @@
 
 #region DuplexDequeu
 
-var duplexDequeu = new DuplexLinkedDeque<int>();
+//var duplexDequeu = new DuplexLinkedDeque<int>();
 
-duplexDequeu.PushFront(1);
-duplexDequeu.PushFront(2);
-duplexDequeu.PushFront(3);
-duplexDequeu.PushBack(4);
-duplexDequeu.PushBack(5);
+//duplexDequeu.PushFront(1);
+//duplexDequeu.PushFront(2);
+//duplexDequeu.PushFront(3);
+//duplexDequeu.PushBack(4);
+//duplexDequeu.PushBack(5);
 
-Console.WriteLine(duplexDequeu.PopFront());
-Console.WriteLine(duplexDequeu.PopFront());
-Console.WriteLine(duplexDequeu.PopBack());
-Console.WriteLine(duplexDequeu.PopBack());
-Console.WriteLine(duplexDequeu.PopFront());
+//Console.WriteLine(duplexDequeu.PopFront());
+//Console.WriteLine(duplexDequeu.PopFront());
+//Console.WriteLine(duplexDequeu.PopBack());
+//Console.WriteLine(duplexDequeu.PopBack());
+//Console.WriteLine(duplexDequeu.PopFront());
 
 #endregion
+
+#region HashSet
+//var set = new EasyHashSet<int>(new int[] { 1, 2, 3, 4, 5 });
+//var set2 = new EasyHashSet<int>(new int[] { 2, 5, 6, 7, 11 });
+
+//var result = set.Union(set2);
+
+//foreach (var item in result)
+//{
+//    Console.Write(item + " ");
+//}
+
+//var res = set.Intersect(set2);
+
+//Console.WriteLine();
+//foreach (var item in res)
+//{
+//    Console.Write(item + " ");
+//}
+
+//var resb = set.Difference(set2);
+
+//foreach (var item in resb)
+//{
+//    Console.Write(item + " ");
+//}
+
+
+//Console.WriteLine();
+//var resc = set.SymmetricDifference(set2);
+
+//foreach (var item in resc)
+//{
+//    Console.Write(item + " ");
+//}
+#endregion
+
+
+

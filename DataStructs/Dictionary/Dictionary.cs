@@ -8,6 +8,7 @@ namespace DataStructs.Dictionary
     {
         private int size = 100;
         private Item<TKey, TValue>[] items;
+        private List<TKey> Keys = new();
 
         public Dict()
         {
@@ -22,8 +23,15 @@ namespace DataStructs.Dictionary
             }
 
             var hash = GetHash(item.Key);
+
+            if (Keys.Contains(item.Key))
+            {
+                return;
+            }
+
             if (items[hash] == null)
             {
+                Keys.Add(item.Key);
                 items[hash] = item;
             }
             else
@@ -38,6 +46,7 @@ namespace DataStructs.Dictionary
 
                     if (items[i] == null)
                     {
+                        Keys.Add(item.Key);
                         items[i] = item;
                         placed = true;
                         break;
@@ -55,6 +64,7 @@ namespace DataStructs.Dictionary
 
                         if (items[i] == null)
                         {
+                            Keys.Add(item.Key);
                             items[i] = item;
                             break;
                         }
@@ -68,20 +78,34 @@ namespace DataStructs.Dictionary
             }
         }
 
-    
+
 
         public void Remove(TKey key)
         {
             var hash = GetHash(key);
 
+            if (Keys.Contains(key) == false)
+            {
+                return;
+            }
+
             if (items[hash] == null)
             {
+                for (var i = 0; i < size; i++)
+                {
+                    if (items[i] != null && items[i].Key.Equals(key))
+                    {
+                        items[i] = null;
+                        Keys.Remove(key);
+                    }
+                }
                 return;
             }
 
             if (items[hash].Key.Equals(key))
             {
                 items[hash] = null;
+                Keys.Remove(key);
             }
 
             else
@@ -97,6 +121,7 @@ namespace DataStructs.Dictionary
                     if (items[i].Key.Equals(key))
                     {
                         items[i] = null;
+                        Keys.Remove(key);
                         return;
                     }
                 }
@@ -112,6 +137,8 @@ namespace DataStructs.Dictionary
 
                         if (items[i].Key.Equals(key))
                         {
+                            items[i] = null;
+                            Keys.Remove(key);
                             return;
                         }
                     }
@@ -123,8 +150,21 @@ namespace DataStructs.Dictionary
         {
             var hash = GetHash(key);
 
+            if (Keys.Contains(key) == false)
+            {
+                return default;
+            }
+
             if (items[hash] == null)
             {
+                foreach (var item in items)
+                {
+                    if (item.Key.Equals(key))
+                    {
+                        return item.Value;
+                    }
+                }
+
                 return default;
             }
 

@@ -260,31 +260,41 @@ using DataStructs.Map;
 
 #region Dictionary(Custom)
 
-var dictionary = new Dict<int, string>();
+//var dictionary = new Dict<int, string>();
 
-dictionary.Add(new Item<int, string>(1, "Самир"));
-dictionary.Add(new Item<int, string>(1, "Самир"));
-dictionary.Add(new Item<int, string>(2, "Боря"));
-dictionary.Add(new Item<int, string>(3, "Член"));
-dictionary.Add(new Item<int, string>(4, "Некит"));
-dictionary.Add(new Item<int, string>(5, "Дюша"));
-dictionary.Add(new Item<int, string>(511, "Пятьсот одинадцать"));
-
-
-foreach (var item in dictionary)
-{
-    Console.WriteLine(item + " ");
-}
-
-dictionary.Remove(5323);
-Console.WriteLine();
+//dictionary.Add(new Item<int, string>(1, "Самир"));
+//dictionary.Add(new Item<int, string>(1, "Самир"));
+//dictionary.Add(new Item<int, string>(2, "Боря"));
+//dictionary.Add(new Item<int, string>(3, "Член"));
+//dictionary.Add(new Item<int, string>(4, "Некит"));
+//dictionary.Add(new Item<int, string>(5, "Дюша"));
+//dictionary.Add(new Item<int, string>(511, "Пятьсот одинадцать"));
 
 
-foreach (var item in dictionary)
-{
-    Console.WriteLine(item + " ");
-}
+//foreach (var item in dictionary)
+//{
+//    Console.WriteLine(item + " ");
+//}
 
-Console.WriteLine(dictionary.Search(31) ?? "Не найдено");
+//dictionary.Remove(5323);
+//Console.WriteLine();
+
+
+//foreach (var item in dictionary)
+//{
+//    Console.WriteLine(item + " ");
+//}
+
+//Console.WriteLine(dictionary.Search(31) ?? "Не найдено");
 
 #endregion
+
+
+Dictionary<int, string> dict = new();
+
+dict.Add(2, "Самир");
+
+foreach (var item in dict)
+{
+    Console.WriteLine(item + " ");
+}

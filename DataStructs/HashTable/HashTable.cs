@@ -1,9 +1,13 @@
-﻿namespace DataStructs.HashTable
+﻿using System.Collections;
+
+namespace DataStructs.HashTable
 {
-    public class HashTable<T>
+    public class HashTable<T> : IEnumerable
     {
         private Item<T>[] items;
 
+        public HashTable() { }
+     
         public HashTable(int size)
         {
             items = new Item<T>[size];
@@ -18,6 +22,11 @@
         {
             var key = GetHashCode(item);
             items[key].Nodes.Add(item);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return items.GetEnumerator();
         }
 
         public bool Search(T item)

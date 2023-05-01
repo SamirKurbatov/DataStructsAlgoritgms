@@ -1,5 +1,7 @@
 ﻿using DataStructs.DuplexDeque;
 using DataStructs.Hash;
+using DataStructs.HashTable;
+using DataStructs.Map;
 
 
 #region LinkedList
@@ -214,5 +216,44 @@ using DataStructs.Hash;
 //}
 #endregion
 
+#region HashTable
+
+//var hashTable = new HashTable<int>(10);
+
+//hashTable.Add(1);
+//hashTable.Add(2);
+//hashTable.Add(3);
+//hashTable.Add(4);
+
+//Console.Write(hashTable.Search(3));
+
+#endregion
 
 
+#region EasyMap
+
+var easyMap = new EasyMap<int, string>();
+
+easyMap.Add(new Item<int, string>(1, "Один"));
+easyMap.Add(new Item<int, string>(2, "Два"));
+easyMap.Add(new Item<int, string>(3, "Три"));
+easyMap.Add(new Item<int, string>(4, "Четыре"));
+easyMap.Add(new Item<int, string>(5, "Пять"));
+
+
+foreach (var item in easyMap)
+{
+    Console.WriteLine(item + " ");
+}
+
+Console.WriteLine(easyMap.Search(3) ?? "Не найдено");
+
+easyMap.Remove(3);
+easyMap.Remove(1);
+
+foreach (var item in easyMap)
+{
+    Console.WriteLine(item + " ");
+}
+
+#endregion

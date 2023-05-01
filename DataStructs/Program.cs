@@ -1,4 +1,5 @@
-﻿using DataStructs.DuplexDeque;
+﻿using DataStructs.Dictionary;
+using DataStructs.DuplexDeque;
 using DataStructs.Hash;
 using DataStructs.HashTable;
 using DataStructs.Map;
@@ -229,31 +230,61 @@ using DataStructs.Map;
 
 #endregion
 
-
 #region EasyMap
 
-var easyMap = new EasyMap<int, string>();
+//var easyMap = new EasyMap<int, string>();
 
-easyMap.Add(new Item<int, string>(1, "Один"));
-easyMap.Add(new Item<int, string>(2, "Два"));
-easyMap.Add(new Item<int, string>(3, "Три"));
-easyMap.Add(new Item<int, string>(4, "Четыре"));
-easyMap.Add(new Item<int, string>(5, "Пять"));
+//easyMap.Add(new Item<int, string>(1, "Один"));
+//easyMap.Add(new Item<int, string>(2, "Два"));
+//easyMap.Add(new Item<int, string>(3, "Три"));
+//easyMap.Add(new Item<int, string>(4, "Четыре"));
+//easyMap.Add(new Item<int, string>(5, "Пять"));
 
 
-foreach (var item in easyMap)
+//foreach (var item in easyMap)
+//{
+//    Console.WriteLine(item + " ");
+//}
+
+//Console.WriteLine(easyMap.Search(3) ?? "Не найдено");
+
+//easyMap.Remove(3);
+//easyMap.Remove(1);
+
+//foreach (var item in easyMap)
+//{
+//    Console.WriteLine(item + " ");
+//}
+
+#endregion
+
+#region Dictionary(Custom)
+
+var dictionary = new Dict<int, string>();
+
+dictionary.Add(new Item<int, string>(1, "Самир"));
+dictionary.Add(new Item<int, string>(1, "Самир"));
+dictionary.Add(new Item<int, string>(2, "Боря"));
+dictionary.Add(new Item<int, string>(3, "Член"));
+dictionary.Add(new Item<int, string>(4, "Некит"));
+dictionary.Add(new Item<int, string>(5, "Дюша"));
+dictionary.Add(new Item<int, string>(511, "Пятьсот одинадцать"));
+
+
+foreach (var item in dictionary)
 {
     Console.WriteLine(item + " ");
 }
 
-Console.WriteLine(easyMap.Search(3) ?? "Не найдено");
+dictionary.Remove(5323);
+Console.WriteLine();
 
-easyMap.Remove(3);
-easyMap.Remove(1);
 
-foreach (var item in easyMap)
+foreach (var item in dictionary)
 {
     Console.WriteLine(item + " ");
 }
+
+Console.WriteLine(dictionary.Search(31) ?? "Не найдено");
 
 #endregion

@@ -1,4 +1,5 @@
-﻿using DataStructs.Dictionary;
+﻿using DataStructs.BinarySearchTree;
+using DataStructs.Dictionary;
 using DataStructs.DuplexDeque;
 using DataStructs.Hash;
 using DataStructs.HashTable;
@@ -289,12 +290,19 @@ using DataStructs.Map;
 
 #endregion
 
+#region BinaryTree
 
-Dictionary<int, string> dict = new();
+var tree = new Tree<int>();
 
-dict.Add(2, "Самир");
+tree.Add(5);
+tree.Add(6);
+tree.Add(1);
+tree.Add(2);
 
-foreach (var item in dict)
+
+foreach (var item in tree.PreOrder())
 {
     Console.WriteLine(item + " ");
 }
+
+#endregion

@@ -1,7 +1,6 @@
-﻿
-namespace DataStructs.BinarySearchTree
+﻿namespace DataStructs.BinarySearchTree
 {
-    internal class Node<T> : IComparable
+    public class Node<T> : IComparable
         where T : IComparable
     {
         public T Data { get; private set; }
@@ -9,6 +8,7 @@ namespace DataStructs.BinarySearchTree
         public Node<T> Left { get; private set; }
 
         public Node<T> Right { get; private set; }
+
 
         public Node(T data)
         {
@@ -20,6 +20,19 @@ namespace DataStructs.BinarySearchTree
             Data = data;
             Left = left;
             Right = right;
+        }
+
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is Node<T> item)
+            {
+                return Data.CompareTo(item.Data);
+            }
+            else
+            {
+                throw new ArgumentException(nameof(obj));
+            }
         }
 
         public void Add(T data)
@@ -37,24 +50,18 @@ namespace DataStructs.BinarySearchTree
                     Left.Add(data);
                 }
             }
+
             else
             {
                 if (Right == null)
                 {
                     Right = node;
                 }
-            }
-        }
 
-        public int CompareTo(object? obj)
-        {
-            if (obj is Node<T> item)
-            {
-                return Data.CompareTo(item.Data);
-            }
-            else
-            {
-                throw new Exception("Не совпадение типов");
+                else
+                {
+                    Right.Add(data);
+                }
             }
         }
     }

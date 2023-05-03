@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace DataStructs.BinarySearchTree
 {
-    internal class Tree<T> where T : IComparable
+    public class Tree<T>
+        where T : IComparable
     {
         public Node<T> Root { get; private set; }
 
@@ -15,13 +11,14 @@ namespace DataStructs.BinarySearchTree
 
         public void Add(T data)
         {
+            var current = new Node<T>(data);
+
             if (Root == null)
             {
-                Root = new Node<T>(data);
+                Root = current;
                 Count = 1;
                 return;
             }
-
             Root.Add(data);
             Count++;
         }
@@ -32,7 +29,6 @@ namespace DataStructs.BinarySearchTree
             {
                 return new List<T>();
             }
-
             return PreOrder(Root);
         }
 
@@ -53,7 +49,6 @@ namespace DataStructs.BinarySearchTree
                 {
                     list.AddRange(PreOrder(node.Right));
                 }
-
             }
             return list;
         }
@@ -64,7 +59,6 @@ namespace DataStructs.BinarySearchTree
             {
                 return new List<T>();
             }
-
             return PostOrder(Root);
         }
 
@@ -89,17 +83,16 @@ namespace DataStructs.BinarySearchTree
             return list;
         }
 
-        public List<T> InOrder()
+        public List<T> InfixOrder()
         {
             if (Root == null)
             {
                 return new List<T>();
             }
-
-            return InOrder(Root);
+            return InfixOrder(Root);
         }
 
-        private List<T> InOrder(Node<T> node)
+        private List<T> InfixOrder(Node<T> node)
         {
             var list = new List<T>();
 
@@ -107,15 +100,16 @@ namespace DataStructs.BinarySearchTree
             {
                 if (node.Left != null)
                 {
-                    list.AddRange(InOrder(node.Left));
+                    list.AddRange(InfixOrder(node.Left));
                 }
 
                 list.Add(node.Data);
 
                 if (node.Right != null)
                 {
-                    list.AddRange(InOrder(node.Right));
+                    list.AddRange(InfixOrder(node.Right));
                 }
+
             }
             return list;
         }

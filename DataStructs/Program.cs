@@ -295,14 +295,34 @@ using DataStructs.Map;
 var tree = new Tree<int>();
 
 tree.Add(5);
-tree.Add(6);
+tree.Add(3);
+tree.Add(7);
 tree.Add(1);
 tree.Add(2);
+tree.Add(8);
+tree.Add(6);
+tree.Add(9);
 
 
+foreach (int item in tree.InfixOrder())
+{
+    Console.Write(item + " ");
+}
+
+Console.WriteLine();
+
+foreach (var item in tree.PostOrder())
+{
+    Console.Write(item + " ");
+}
+Console.WriteLine();
 foreach (var item in tree.PreOrder())
 {
-    Console.WriteLine(item + " ");
+    Console.Write(item + " ");
 }
+
+
+
+Console.ReadLine();
 
 #endregion

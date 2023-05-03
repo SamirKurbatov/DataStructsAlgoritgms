@@ -9,6 +9,8 @@ namespace DataStructs.BinarySearchTree
 
         public int Count { get; private set; }
 
+        private List<T> result = new List<T>();
+
         public void Add(T data)
         {
             var current = new Node<T>(data);
@@ -25,93 +27,59 @@ namespace DataStructs.BinarySearchTree
 
         public List<T> PreOrder()
         {
-            if (Root == null)
-            {
-                return new List<T>();
-            }
-            return PreOrder(Root);
+            result.Clear();
+            PreOrder(Root);
+            return result;
         }
 
-        private List<T> PreOrder(Node<T> node)
+        private void PreOrder(Node<T> node)
         {
-            var list = new List<T>();
-
-            if (node != null)
+            if (node == null)
             {
-                list.Add(node.Data);
-
-                if (node.Left != null)
-                {
-                    list.AddRange(PreOrder(node.Left));
-                }
-
-                if (node.Right != null)
-                {
-                    list.AddRange(PreOrder(node.Right));
-                }
+                return;
             }
-            return list;
+
+            result.Add(node.Data);
+            PreOrder(node.Left);
+            PreOrder(node.Right);
         }
 
         public List<T> PostOrder()
         {
-            if (Root == null)
-            {
-                return new List<T>();
-            }
-            return PostOrder(Root);
+            result.Clear();
+            PostOrder(Root);
+            return result;
         }
 
-        private List<T> PostOrder(Node<T> node)
+        private void PostOrder(Node<T> node)
         {
-            var list = new List<T>();
-
-            if (node != null)
+            if (node == null)
             {
-                if (node.Left != null)
-                {
-                    list.AddRange(PostOrder(node.Left));
-                }
-
-                if (node.Right != null)
-                {
-                    list.AddRange(PostOrder(node.Right));
-                }
-
-                list.Add(node.Data);
+                return;
             }
-            return list;
+
+            PostOrder(node.Left);
+            PostOrder(node.Right);
+            result.Add(node.Data);
         }
 
         public List<T> InfixOrder()
         {
-            if (Root == null)
-            {
-                return new List<T>();
-            }
-            return InfixOrder(Root);
+            result.Clear();
+            InfixOrder(Root);
+            return result;
         }
 
-        private List<T> InfixOrder(Node<T> node)
+        private void InfixOrder(Node<T> node)
         {
-            var list = new List<T>();
-
-            if (node != null)
+            if (node == null)
             {
-                if (node.Left != null)
-                {
-                    list.AddRange(InfixOrder(node.Left));
-                }
-
-                list.Add(node.Data);
-
-                if (node.Right != null)
-                {
-                    list.AddRange(InfixOrder(node.Right));
-                }
-
+                return;
             }
-            return list;
+
+            InfixOrder(node.Left);
+            result.Add(node.Data);
+            InfixOrder(node.Right);
         }
     }
 }

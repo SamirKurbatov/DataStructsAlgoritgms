@@ -13,11 +13,9 @@ namespace DataStructs.BinarySearchTree
 
         public void Add(T data)
         {
-            var current = new Node<T>(data);
-
             if (Root == null)
             {
-                Root = current;
+                Root = new Node<T>(data);
                 Count = 1;
                 return;
             }

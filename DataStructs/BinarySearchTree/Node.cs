@@ -9,7 +9,6 @@
 
         public Node<T> Right { get; private set; }
 
-
         public Node(T data)
         {
             Data = data;

@@ -4,6 +4,7 @@ using DataStructs.DuplexDeque;
 using DataStructs.Hash;
 using DataStructs.HashTable;
 using DataStructs.Map;
+using DataStructs.PrefixBinary;
 
 
 #region LinkedList
@@ -292,33 +293,36 @@ using DataStructs.Map;
 
 #region BinaryTree
 
-var tree = new Tree<int>();
-
-tree.Add(6);
-tree.Add(4);
-tree.Add(8);
-tree.Add(55);
-tree.Add(9);
+//var tree = new Tree<int>();
+//var random = new Random();
 
 
-//foreach (int item in tree.InfixOrder())
+//foreach (var item in tree.PreOrder())
 //{
 //    Console.Write(item + " ");
 //}
-
+//}
 //Console.WriteLine();
-
 //foreach (var item in tree.PostOrder())
 //{
 //    Console.Write(item + " ");
 //}
-Console.WriteLine();
-foreach (var item in tree.PostOrder())
-{
-    Console.Write(item + " ");
-}
+//Console.WriteLine();
+//foreach (var item in tree.InfixOrder())
+//{
+//    Console.Write(item + " ");
+//}
+
+#endregion
+
+#region PrefixTree
+
+var tree = new DataStructs.PrefixBinary.Tree<int>();
+
+tree.Add("Саньчоус", 50);
+tree.Add("Ку", 25);
+tree.Add("Самиро", 25);
 
 Console.ReadLine();
 
 #endregion
-

@@ -1,10 +1,13 @@
 ﻿using DataStructs.BinarySearchTree;
 using DataStructs.Dictionary;
 using DataStructs.DuplexDeque;
+using DataStructs.DuplexList;
 using DataStructs.Hash;
 using DataStructs.HashTable;
+using DataStructs.Heep;
 using DataStructs.Map;
 using DataStructs.PrefixBinary;
+using System.Diagnostics;
 
 
 #region LinkedList
@@ -317,12 +320,47 @@ using DataStructs.PrefixBinary;
 
 #region PrefixTree
 
-var tree = new DataStructs.PrefixBinary.Tree<int>();
+//var tree = new DataStructs.PrefixBinary.Tree<int>();
 
-tree.Add("Саньчоус", 50);
-tree.Add("Ку", 25);
-tree.Add("Самиро", 25);
+//tree.Add("Саньчоус", 50);
+//tree.Add("Ку", 25);
+//tree.Add("Самиро", 25);
 
-Console.ReadLine();
+//Console.ReadLine();
 
 #endregion
+
+
+var timer = new Stopwatch();
+
+var rnd = new Random();
+
+var startItems = new List<int>();
+
+var countItems = 100;
+
+for (int i = 0; i < countItems; i++)
+{
+    startItems.Add(rnd.Next(-1000, 1000));
+}
+
+timer.Start();
+var heap = new Heap(startItems);
+timer.Stop();
+Console.WriteLine($"Первоначальная инициализация из 1000 элементов {timer.Elapsed.TotalMilliseconds}");
+
+timer.Restart();
+for (int i = 0; i < countItems; i++)
+{
+    heap.Add(rnd.Next(-1000, 1000));
+}
+timer.Stop();
+Console.WriteLine($"Добавление второй тысячи элементов {timer.Elapsed.TotalMilliseconds}");
+timer.Restart();
+foreach (var item in heap)
+{
+    Console.WriteLine(item + " ");
+}
+timer.Stop();
+Console.WriteLine($"Вывод двух тысяч элементов {timer.Elapsed.TotalMilliseconds}");
+Console.ReadLine();

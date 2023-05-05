@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace DataStructs.DuplexList
 {
     public class DuplexLinkedList<T> : IEnumerable<T>
+        where T : IComparable
     {
         public DuplexItem<T> Head { get; set; }
 

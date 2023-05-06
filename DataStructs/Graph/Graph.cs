@@ -52,10 +52,8 @@
             return matrix;
         }
 
-        public List<Vertex> GetVertexLists(Vertex vertex)
+        public List<Vertex> GetNeighbors(List<Vertex> result,Vertex vertex)
         {
-            var result = new List<Vertex>();
-
             foreach (var edge in edges)
             {
                 if (edge.From == vertex)
@@ -77,7 +75,7 @@
             {
                 var vertex = list[i];
 
-                foreach (var v in GetVertexLists(vertex))
+                foreach (var v in GetNeighbors(list, vertex)) 
                 {
                     if (list.Contains(v) == false)
                     {
@@ -93,6 +91,7 @@
         {
             var stack = new Stack<Vertex>();
             var result = new HashSet<Vertex>();
+            var list = new List<Vertex>();
             stack.Push(initialVertex);
 
             while (stack.Count != 0)
@@ -100,7 +99,7 @@
                 var vertex = stack.Pop();
                 result.Add(vertex);
 
-                foreach (var v in GetVertexLists(vertex))
+                foreach (var v in GetNeighbors(list,vertex))
                 {
                     if (result.Contains(v) == false)
                     {

@@ -27,6 +27,11 @@ namespace DataStructs.Heep
 
         public Heap(List<int> items)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException("items");
+            }
+
             this.items.AddRange(items);
             for (int i = Count; i >= 0; i--)
             {

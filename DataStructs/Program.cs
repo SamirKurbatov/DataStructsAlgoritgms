@@ -2,6 +2,7 @@
 using DataStructs.Dictionary;
 using DataStructs.DuplexDeque;
 using DataStructs.DuplexList;
+using DataStructs.Graph;
 using DataStructs.Hash;
 using DataStructs.HashTable;
 using DataStructs.Heep;
@@ -330,37 +331,115 @@ using System.Diagnostics;
 
 #endregion
 
+#region Heap
+// var timer = new Stopwatch();
 
-var timer = new Stopwatch();
+//var rnd = new Random();
 
-var rnd = new Random();
+//var startItems = new List<int>();
 
-var startItems = new List<int>();
+//var countItems = 100;
 
-var countItems = 100;
+//for (int i = 0; i < countItems; i++)
+//{
+//    startItems.Add(rnd.Next(-1000, 1000));
+//}
 
-for (int i = 0; i < countItems; i++)
-{
-    startItems.Add(rnd.Next(-1000, 1000));
-}
+//timer.Start();
+//var heap = new Heap(startItems);
+//timer.Stop();
+//Console.WriteLine($"Первоначальная инициализация из 1000 элементов {timer.Elapsed.TotalMilliseconds}");
 
-timer.Start();
-var heap = new Heap(startItems);
-timer.Stop();
-Console.WriteLine($"Первоначальная инициализация из 1000 элементов {timer.Elapsed.TotalMilliseconds}");
+//timer.Restart();
+//for (int i = 0; i < countItems; i++)
+//{
+//    heap.Add(rnd.Next(-1000, 1000));
+//}
+//timer.Stop();
+//Console.WriteLine($"Добавление второй тысячи элементов {timer.Elapsed.TotalMilliseconds}");
+//timer.Restart();
+//foreach (var item in heap)
+//{
+//    Console.WriteLine(item + " ");
+//}
+//timer.Stop();
+//Console.WriteLine($"Вывод двух тысяч элементов {timer.Elapsed.TotalMilliseconds}");
+//Console.ReadLine();
 
-timer.Restart();
-for (int i = 0; i < countItems; i++)
-{
-    heap.Add(rnd.Next(-1000, 1000));
-}
-timer.Stop();
-Console.WriteLine($"Добавление второй тысячи элементов {timer.Elapsed.TotalMilliseconds}");
-timer.Restart();
-foreach (var item in heap)
-{
-    Console.WriteLine(item + " ");
-}
-timer.Stop();
-Console.WriteLine($"Вывод двух тысяч элементов {timer.Elapsed.TotalMilliseconds}");
+#endregion
+
+#region Graph
+var graph = new Graph();
+
+var v1 = new Vertex(1);
+var v2 = new Vertex(2);
+var v3 = new Vertex(3);
+var v4 = new Vertex(4);
+var v5 = new Vertex(5);
+var v6 = new Vertex(6);
+var v7 = new Vertex(7);
+
+graph.AddVertex(v1);
+graph.AddVertex(v2);
+graph.AddVertex(v3);
+graph.AddVertex(v4);
+graph.AddVertex(v5);
+graph.AddVertex(v6);
+graph.AddVertex(v7);
+
+graph.AddEdge(v1, v2);
+graph.AddEdge(v1, v3);
+graph.AddEdge(v3, v4);
+graph.AddEdge(v2, v5);
+graph.AddEdge(v2, v6);
+graph.AddEdge(v5, v6);
+graph.AddEdge(v6, v5);
+
+GetMatrix(graph);
+GetVertex(graph, v1);
+GetVertex(graph, v2);
+GetVertex(graph, v3);
+GetVertex(graph, v4);
+GetVertex(graph, v5);
+GetVertex(graph, v6);
+GetVertex(graph, v7);
+
+Console.WriteLine();
+Console.WriteLine(graph.Wave(v1, v5));
+Console.WriteLine(graph.Wave(v2, v4));
+Console.WriteLine(graph.BypassWave(v7));
+
 Console.ReadLine();
+
+static void GetVertex(Graph graph, Vertex vertex)
+{
+    Console.WriteLine();
+    Console.Write(vertex.Number + ": ");
+    foreach (var v in graph.GetVertexLists(vertex))
+    {
+        Console.Write(v.Number+ " ");
+    }
+}
+
+static void GetMatrix(Graph graph)
+{
+    var result = graph.GetMatrix();
+
+    Console.WriteLine("___________________________________________");
+    for (int i = 0; i < graph.VetrexCount; i++)
+    {
+        Console.Write($" | {i + 1} |");
+    }
+    Console.WriteLine();
+    for (int i = 0; i < graph.VetrexCount; i++)
+    {
+        Console.Write(i + 1 + " ");
+        for (int j = 0; j < graph.VetrexCount; j++)
+        {
+            Console.Write("| " + result[i, j] + " | ");
+        }
+        Console.WriteLine();
+    }
+}
+
+#endregion
